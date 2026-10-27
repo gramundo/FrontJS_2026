@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompraCar | Vehículos Exclusivos</title>
+
+    <!-- Importación de la fuente Arimo desde Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin> <!-- Preconectarse a Google Fonts -->
+    <link href="https://googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-logo">
+            <img src="img/CompraCar_logo_trasparente.png" alt="CompraCar">
+        </div>
+        <div class="header-container">
+                <nav class="main-nav"> 
+                    <ul class="nav-list">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#resenas">Reseñas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+        </div>
+        
+    </header>
+
+    <!-- Contenido Principal de la Página -->
+    <main>
+        <section id="inicio" class="hero-section">
+            <h2>Bienvenidos a CompraCar</h2>
+            <p>Tu Camino, Tu Auto, Tu Mejor Trato</p>
+            <p>Encuentra el auto de tus sueños con la mejor financiación y confianza del mercado.</p>
+        </section>
+
+        <div class="video-container">
+        <section id="nosotros" class="nosotros-section">
+            <video controls width="640" height="360">
+                <source src="vid/CompraCar_video.mp4" type="video/mp4">
+                <track src="vid/CompraCar_video.vtt" kind="subtitles" srclang="es" label="Español" default>
+            </video>
+        </section>
+        </div> 
+
+        <!-- Catálogo de Productos con Grid Responsivo -->
+        <section id="productos" class="productos-section">
+            <h2 class="section-title">Nuestros Vehículos</h2>
+            <div class="grid-productos">
+                <!-- Producto 1 -->
+                <article class="tarjeta-producto">
+                    <div class="producto-imagen-placeholder">
+                         <span><img src="img/B10.jpg" alt="Auto 1"></span>
+                    </div>
+                     <div class="producto-info">
+                        <h3>Leapmotor B10</h3>
+                        <p class="descripcion">SUV 100% eléctrico con tecnología de vanguardia, conectividad avanzada y gran autonomía urbana.</p>
+                        <p class="precio">$5.000.000</p>
+                        <button type="button" class="btn-comprar">Comprar</button>
+                    </div>
+                </article>
+                
+                <!-- Producto 2 -->
+                <article class="tarjeta-producto">
+                    <div class="producto-imagen-placeholder">
+                        <span><img src="img/r12_2.jpg" alt="Auto 2"></span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Renault 12</h3>
+                        <p class="descripcion">Auto familiar clásico con diseño robusto y excelente confiabilidad mecánica.</p>
+                        <p class="precio">$1.000.000</p>
+                        <button type="button" class="btn-comprar">Comprar</button>
+                    </div>
+                </article>
+                <!-- Producto 3 -->
+                <article class="tarjeta-producto">
+                    <div class="producto-imagen-placeholder">
+                        <span><img src="img/beetle_5.jpg" alt="Auto 3"></span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>New Beetle</h3>
+                        <p class="descripcion">El renacimiento de la nostalgia con estilo urbano, líneas redondeadas icónicas y gran personalidad.</p>
+                        <p class="precio">$3.000.000</p>
+                        <button type="button" class="btn-comprar">Comprar</button>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Sección de Reseñas de Usuarios-->
+        </section id="resenas" class="resenas-section">
+            <h2 class="section-title">Qué dicen nuestros clientes</h2>
+            <div class="grid-resenas">
+                <blockquote class="tarjeta-resena">
+                    <p class="comentario">"Excelente atención y el proceso de compra fue súper rápido. El auto está impecable."</p>
+                    <cite class="autor">— Juan Pérez</cite>
+                </blockquote>
+                <blockquote class="tarjeta-resena">
+                    <p class="comentario">"Muy confiables. Cumplieron con todos los plazos de entrega y la documentación."</p>
+                    <cite class="autor">— María Rodríguez</cite>
+                </blockquote>
+            </div>
+        </section>
+        
+        <!-- Formulario de Contacto Optimizado y Validado -->
+        <section class="contacto-section" id="contacto">
+            <h2 class="section-title">Contactanos</h2>
+            <p class="contacto-subtitulo"> Déjanos tu consulta y un asesor se comunicará contigo a la brevedad.</p>
+            <br><br>
+            <form action="https://formspree.io/f/mdealrzl" method="POST" class="formulario-contacto">
+                <div class="formulario-group">
+                    <label for="nombre"> Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="formulario-group">
+                    <label for="email"> Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Ej. juan@compracar.com" required>
+                </div>
+                <div class="formulario-group">
+                    <label for="mensaje"> Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer class="main-footer">
+       <img src="ico/whatsapp.png" alt="Ícono de whatsapp" width="50">
+       <img src="ico/instagram.png" alt="Ícono de instagram" width="50">
+       <img src="ico/facebook.png" alt="Ícono de facebook" width="50">
+
+        <p>&copy; 2026 Raggimundo. Todos los derechos reservados.</p>
+    </footer>
+</body>

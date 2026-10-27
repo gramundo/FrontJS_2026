@@ -1,0 +1,367 @@
+/* ==========================================
+   1. CONFIGURACIÓN GENERAL Y VARIABLES
+   ========================================== */
+:root {
+    --primary-color: #2c3e50;    /* Azul oscuro para headers y títulos */
+    --secondary-color: #34495e;  /* Gris azulado para footers y fondos */
+    --accent-color: #2980b9;     /* Azul brillante para enlaces y CTAs */
+    --hover-color: #e74c3c;      /* Rojo para estados hover */
+    --bg-light: #fcfbfb;         /* Fondo general suave */
+    --card-bg: #ffffff;          /* Fondo limpio para las tarjetas */
+    --text-color: #333333;       /* Texto principal oscuro */
+    --text-muted: #7f8c8d;       /* Texto secundario atenuado */
+    --border-color: #e2e8f0;     /* Bordes sutiles modernos */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arimo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Desplazamiento suave al usar los enlaces del menú */
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+/* ==========================================
+   2. HEADER Y BARRA DE NAVEGACIÓN (STICKY)
+   ========================================== */
+.main-header {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 15px 20px;
+    position: static;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.header-logo img {
+    height: 100px;
+    width: auto;
+    max-width: 100%;         /* No permite que se desborde */
+    object-position: center; /* Centra el foco de la foto (horizontal y verticalmente) */
+    display: block;          /* Elimina espacios en blanco residuales debajo de la foto */
+}
+
+.header-container h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+.nav-list a:hover {
+    color: #ecf0f1; /* Cambio sutil en navbar */
+}
+
+/* ==========================================
+   3. SECCIÓN HERO (BIENVENIDA)
+   ========================================== */
+.hero-section {
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85))/*, url('https://unsplash.com') no-repeat center/cover*/;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+/* Contenedor para centrar el video horizontalmente */
+.nosotros-section {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;     /* Centra el contenido verticalmente si tiene altura */
+    margin: 40px auto;       /* Añade margen arriba/abajo y centra el bloque */
+    padding: 0 20px;         /* Evita que toque los bordes en pantallas chicas */
+}
+
+/* Opcional: Asegura que el video sea responsivo en celulares */
+.video-container video, 
+.video-container iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;      /* Combina con el diseño curvo de tus tarjetas */
+}
+
+/* ==========================================
+   4. SECCIÓN DE PRODUCTOS (GRID RESPONSIVO)
+   ========================================== */
+.productos-section, .resenas-section, .contacto-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.tarjeta-producto {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.tarjeta-producto img {
+    width: 100%;             /* Ocupa todo el ancho disponible */
+    height: 200px;           /* Forzamos la altura del recorte */
+    object-fit: cover;       /* Recorta la imagen para rellenar el espacio sin deformarla */
+    object-position: center; /* El recorte se hace centrado (puedes usar 'top', 'bottom', etc.) */
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor temporal para las fotos */
+.producto-imagen-placeholder {
+    background-color: #e2e8f0;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-weight: bold;
+}
+
+.producto-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.producto-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.producto-info .descripcion {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.producto-info .precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.btn-comprar {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-comprar:hover {
+    background-color: var(--hover-color);
+}
+
+/* ==========================================
+   5. SECCIÓN DE RESEÑAS
+   ========================================== */
+.grid-resenas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.tarjeta-resena {
+    background-color: var(--card-bg);
+    border-left: 5px solid var(--accent-color);
+    margin: 0;
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.tarjeta-resena .comentario {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.tarjeta-resena .autor {
+    font-weight: bold;
+    color: var(--text-muted);
+    display: block;
+}
+
+/* ==========================================
+   6. SECCIÓN DE CONTACTO Y FORMULARIO
+   ========================================== */
+.contacto-subtitulo {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+.formulario-contacto {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.formulario-group {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; /* Centra verticalmente la etiqueta con el input */
+    margin-bottom: 20px;
+    gap: 15px; /* Crea un espacio fijo entre la etiqueta y el campo */
+}
+
+.formulario-group label {
+    flex: 0 0 150px; /* No se encoge, no crece, mide exactamente 150px */
+    text-align: right; /* Opcional: alinea el texto hacia la derecha para pegarlo al input */
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.formulario-group input, .formulario-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #f8fafc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario-group input:focus, .formulario-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.15);
+}
+
+.btn-enviar {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+.btn-enviar:hover {
+    background-color: var(--secondary-color);
+}
+
+/* ==========================================
+   7. PIE DE PÁGINA (FOOTER)
+   ========================================== */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: #bdc3c7;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 80px;
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   8. MEDIA QUERIES (RESPONSIVIDAD MÓVIL)
+   ========================================== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-list {
+        gap: 15px;
+    }
+    
+    .hero-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .formulario-contacto {
+        padding: 25px;
+    }
+}
